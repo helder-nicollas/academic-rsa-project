@@ -53,14 +53,5 @@ typedef EuclidesDivisionItem struct {
 
 
 int main() {
-    EuclidesDivisionItem array[10];
-
-    array[0].r.value
-
-    36x+25y=1
-
-
-
-
     return 0;
 }
