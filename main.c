@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <math.h>
+#include "types/modular-functions.h"
 
-typedef Rest struct {
+typedef struct {
     int value;
     int q;
     int d;
@@ -9,12 +10,12 @@ typedef Rest struct {
 } Rest;
 
 
-typedef EuclidesDivisionItem struct {
+typedef struct {
     Rest r;
     int q;
     int d;
     int D;
-} Rest;
+} EuclidesDivisionItem;
 
 // 36 = 1*25+11
 // 25 = 2*11+3
@@ -53,14 +54,6 @@ typedef EuclidesDivisionItem struct {
 
 
 int main() {
-    EuclidesDivisionItem array[10];
-
-    array[0].r.value
-
-    36x+25y=1
-
-
-
-
+    printf("", sum(a, b))
     return 0;
 }
