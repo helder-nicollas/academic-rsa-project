@@ -1,4 +1,4 @@
-#include "conversao.h"
+#include "types/decimal-to-binary.h"
 
 int decimalToBinary(unsigned long long n, int binary[]) {
     int i = 0;

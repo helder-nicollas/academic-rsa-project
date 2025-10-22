@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "modular-functions.h": "c"
+        "modular-functions.h": "c",
+        "modular-exponentiation.h": "c",
+        "types.h": "c",
+        "stdio.h": "c",
+        "math.h": "c"
     }
 }

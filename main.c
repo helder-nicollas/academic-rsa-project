@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-#include "types/modular-functions.h"
 
 typedef struct {
     int value;
@@ -54,6 +53,5 @@ typedef struct {
 
 
 int main() {
-    printf("", sum(a, b))
     return 0;
 }

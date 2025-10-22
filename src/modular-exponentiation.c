@@ -1,4 +1,4 @@
-#include "modular.h"
+#include "types/modular-exponentiation.h"
 
 unsigned long long modularExponentiation(unsigned long long base, unsigned long long mod, int binaryExp[], int size) {
     unsigned long long result = 1;
