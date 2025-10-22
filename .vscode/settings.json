@@ -5,6 +5,10 @@
         "modular-exponentiation.h": "c",
         "types.h": "c",
         "stdio.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "extended-euclides.h": "c",
+        "decimal-to-binary.h": "c",
+        "keys.h": "c",
+        "modular-inverse.h": "c"
     }
 }

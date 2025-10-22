@@ -1,4 +1,4 @@
-#include "types/extended-euclides.h"
+#include "extended-euclides.h"
 
 int extendedEuclides(int a, int b, int *s, int *t) {
     if (b == 0) {

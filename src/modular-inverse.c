@@ -1,5 +1,5 @@
-#include "types/modular-inverse.h"
-#include "types/extended-euclides.h" 
+#include "modular-inverse.h"
+#include "extended-euclides.h" 
 
 int modularInverse(int a, int m) {
     int s, t;

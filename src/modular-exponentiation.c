@@ -1,7 +1,7 @@
-#include "types/modular-exponentiation.h"
+#include "modular-exponentiation.h"
 
-unsigned long long modularExponentiation(unsigned long long base, unsigned long long mod, int binaryExp[], int size) {
-    unsigned long long result = 1;
+int modularExponentiation(int base, int mod, int binaryExp[], int size) {
+    int result = 1;
     base = base % mod;
 
     for (int i = 0; i < size; i++) {

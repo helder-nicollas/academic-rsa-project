@@ -1,6 +1,6 @@
-#include "types/decimal-to-binary.h"
+#include "decimal-to-binary.h"
 
-int decimalToBinary(unsigned long long n, int binary[]) {
+int decimalToBinary(int n, int binary[]) {
     int i = 0;
     int temp_binary[128]; 
 
