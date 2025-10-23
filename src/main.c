@@ -3,8 +3,12 @@
 #include "types.h"
 
 int main() {
-    int number = 11;
+    HashMap *map = createHashMap(LETTERS_SIZE);
 
-    printf("%d\n", modularInverse(11, 10));
+    initializeLettersMap(map);
+
+
+    printf("%d\n", getHasMapItem(map, 'A'));
+
     return 0;
 }
