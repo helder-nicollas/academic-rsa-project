@@ -3,12 +3,12 @@
 #include "types.h"
 
 int main() {
-    HashMap *map = createHashMap(LETTERS_SIZE);
+    char message[1000];
 
-    initializeLettersMap(map);
+    scanf("%s", message);
 
-
-    printf("%d\n", getHasMapItem(map, 'A'));
+    // q = 5 & p =7
+    encrypt(message, 7, 35);
 
     return 0;
 }
