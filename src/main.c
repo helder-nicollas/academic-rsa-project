@@ -4,11 +4,13 @@
 
 int main() {
     char message[1000];
-
+    
     scanf("%s", message);
 
-    // q = 5 & p =7
+
+    int array[3] = {23, 32, 23};
     encrypt(message, 7, 35);
+    decrypt(array, 7, 35, 24, 3);
 
     return 0;
 }
