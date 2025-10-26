@@ -1,16 +1,17 @@
 #include "modular-exponentiation.h"
 
-int modularExponentiation(int base, int mod, int binaryExp[], int size) {
-    int result = 1;
-    base = base % mod;
+int modularExponentiation(int base, int expo, int mod) {
+    int rest = 1;
 
-    for (int i = 0; i < size; i++) {
-        result = (result * result) % mod;
-
-        if (binaryExp[i] == 1) {
-            result = (result * base) % mod;
+    while (expo > 0) {
+        if (expo % 2 == 1) {
+            rest = (rest * base) % mod;
         }
+
+        base = (base * base) % mod;
+        
+        expo /= 2;
     }
 
-    return result;
+    return rest;
 }

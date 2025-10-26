@@ -3,8 +3,14 @@
 #include "types.h"
 
 int main() {
-    int number = 11;
+    char message[1000];
+    
+    scanf("%s", message);
 
-    printf("%d\n", modularInverse(11, 10));
+
+    int array[3] = {23, 32, 23};
+    encrypt(message, 7, 35);
+    decrypt(array, 7, 35, 24, 3);
+
     return 0;
 }

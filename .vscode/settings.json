@@ -9,6 +9,11 @@
         "extended-euclides.h": "c",
         "decimal-to-binary.h": "c",
         "keys.h": "c",
-        "modular-inverse.h": "c"
-    }
+        "modular-inverse.h": "c",
+        "string.h": "c",
+        "hash-map.h": "c",
+        "letters.h": "c",
+        "crypt.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
