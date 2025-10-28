@@ -13,3 +13,7 @@ void initializeLettersMap(HashMap *map) {
         putHashMapItem(map, LETTERS[current], current + 2);
 }
 
+char getLetter(int number) {
+    return LETTERS[number - 2];
+}
+

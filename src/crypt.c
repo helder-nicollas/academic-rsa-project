@@ -6,7 +6,7 @@
 #include "string.h"
 #include "modular-inverse.h"
 
-int encrypt(char *message, int e, int n) {
+void encrypt(char *message, int *decryptedDigits, int e, int n) {
     HashMap *map = createHashMap(LETTERS_SIZE);
     initializeLettersMap(map);
     size_t size = strlen(message);
@@ -16,22 +16,26 @@ int encrypt(char *message, int e, int n) {
     while (counter < size) {
         int letterNumber = getHasMapItem(map, message[counter]);
         int cryptNumber = modularExponentiation(letterNumber, e, n);
-        printf("%d\n", cryptNumber);
+
+        decryptedDigits[counter] = cryptNumber;
+
         counter++;
     }
 }
 
-int decrypt(int *cryptedMessage, int e, int n, int m, int size) {
+void decrypt(int *cryptedMessage, char *decryptedMessage, int e, int n, int m, int size) {
     HashMap *map = createHashMap(LETTERS_SIZE);
     initializeLettersMap(map);
     int d = modularInverse(e, m);
 
     int counter = 0;
-    
+
     while (counter < size) {
         int number = cryptedMessage[counter];
         int originalNumber = modularExponentiation(number, d, n);
-        printf("%d\n", originalNumber);
+
+        decryptedMessage[counter] = getLetter(originalNumber);
+
         counter++;
     }
 
