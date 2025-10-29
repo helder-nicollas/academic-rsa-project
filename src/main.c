@@ -35,16 +35,16 @@ int main() {
         } else if (option == 3) {
             int publicKey[2];
 
-            fillNumbersArray(publicKey, "public_key.txt", 2);
+            fillNumbersArray(publicKey, "files/public_key.txt", 2);
 
             if (publicKey[0] != n || publicKey[1] != e) {
                 printf("A chave pública informada está incorreta.\n");
             } else {
-                int size = getAmountOfElements("crypted_digits.txt");
+                int size = getAmountOfElements("files/crypted_digits.txt");
 
                 int cryptedDigits[size];
 
-                fillNumbersArray(cryptedDigits, "crypted_digits.txt", size);
+                fillNumbersArray(cryptedDigits, "files/crypted_digits.txt", size);
 
                 char decryptedMessage[size];
 
@@ -64,7 +64,7 @@ int main() {
 
         int publicKey[2];
 
-        fillNumbersArray(publicKey, "public_key.txt", 2);
+        fillNumbersArray(publicKey, "files/public_key.txt", 2);
 
         if (publicKey[0] != n || publicKey[1] != e) {
             printf("A chave pública informada está incorreta.\n");

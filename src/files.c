@@ -3,7 +3,7 @@
 void createPublicKeyFile(int n, int e) {
     FILE *fpointer;
 
-    fpointer = fopen("public_key.txt", "w");
+    fpointer = fopen("files/public_key.txt", "w");
 
     fprintf(fpointer, "%d %d", n, e);
 
@@ -15,7 +15,7 @@ void createCryptedDigitsFile(int *cryptedDigits, int size) {
 
     FILE *fpointer;
 
-    fpointer = fopen("crypted_digits.txt", "w");
+    fpointer = fopen("files/crypted_digits.txt", "w");
 
     for (i = 0; i < size; i++) {
         if (i == size - 1) {
@@ -33,7 +33,7 @@ void createDecryptedMessageFile(char *decryptedMessage, int size) {
 
     FILE *fpointer;
 
-    fpointer = fopen("decrypted_message.txt", "w");
+    fpointer = fopen("files/decrypted_message.txt", "w");
 
     for (i = 0; i < size; i++) {
         fprintf(fpointer, "%c", decryptedMessage[i]);
@@ -61,7 +61,7 @@ void fillNumbersArray(int *numbersArray, char *file, int size) {
 void fillDecryptedMessage(char *string, int size) {
     FILE *fpointer;
     
-    fpointer = fopen("decrypted_message.txt", "r");
+    fpointer = fopen("files/decrypted_message.txt", "r");
 
     fgets(string, size, fpointer);
 
