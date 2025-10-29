@@ -6,7 +6,7 @@
 
 int main() {
     char message[1000];
-    int option, p, q, e, n, m;
+    long long option, p, q, e, n, m;
     
     printf("Criptografia RSA\n");
     printf("----------------------------\n");
@@ -15,34 +15,34 @@ int main() {
     printf("[3] - Descriptografar\n");
     printf("----------------------------\n");
     printf("Escolha sua opção: ");
-    scanf("%d", &option);
+    scanf("%lld", &option);
     printf("----------------------------\n");
 
     if (option == 1 || option == 3) {
         printf("Digite o primo 'p': ");
-        scanf("%d", &p);
+        scanf("%lld", &p);
 
         printf("Digite o primo 'q': ");
-        scanf("%d", &q);
+        scanf("%lld", &q);
 
         printf("Digite o expoente 'e', relativamente primo a (p - 1)(q - 1): ");
-        scanf("%d", &e);
+        scanf("%lld", &e);
 
         n = p * q;
 
         if (option == 1) {
             createPublicKeyFile(n, e);
         } else if (option == 3) {
-            int publicKey[2];
+            long long publicKey[2];
 
             fillNumbersArray(publicKey, "files/public_key.txt", 2);
 
             if (publicKey[0] != n || publicKey[1] != e) {
                 printf("A chave pública informada está incorreta.\n");
             } else {
-                int size = getAmountOfElements("files/crypted_digits.txt");
+                long long size = getAmountOfElements("files/crypted_digits.txt");
 
-                int cryptedDigits[size];
+                long long cryptedDigits[size];
 
                 fillNumbersArray(cryptedDigits, "files/crypted_digits.txt", size);
 
@@ -60,18 +60,18 @@ int main() {
         scanf(" %[^\n]%*c", message);
 
         printf("Digite a chave pública informada anteriormente (n, e): ");
-        scanf("%d%d", &n, &e);
+        scanf("%lld%lld", &n, &e);
 
-        int publicKey[2];
+        long long publicKey[2];
 
         fillNumbersArray(publicKey, "files/public_key.txt", 2);
 
         if (publicKey[0] != n || publicKey[1] != e) {
             printf("A chave pública informada está incorreta.\n");
         } else {
-            int size = strlen(message);
+            long long size = strlen(message);
 
-            int cryptedDigits[size];
+            long long cryptedDigits[size];
 
             encrypt(message, cryptedDigits, e, n);
 
@@ -84,11 +84,11 @@ int main() {
 
     size_t size = strlen(message);
 
-    int cryptedDigits[size];
+    long long cryptedDigits[size];
     char decryptedMessage[size];
 
-    int n = p * q;
-    int m = (p - 1) * (q - 1);
+    long long n = p * q;
+    long long m = (p - 1) * (q - 1);
 
     encrypt(message, cryptedDigits, e, n);
 

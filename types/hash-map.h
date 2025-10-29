@@ -4,18 +4,18 @@
 
 typedef struct Node {
     char        key;
-    int          value;
+    long long          value;
     struct Node* next;
 } Node;
 
 typedef struct HashMap {
     Node**       buckets;
-    unsigned int size;
+    unsigned long long size;
 } HashMap;
 
 HashMap* createHashMap(size_t size);
-void     putHashMapItem(HashMap* map, char key, int value);
-int getHasMapItem(HashMap *map, const char key);
+void     putHashMapItem(HashMap* map, char key, long long value);
+long long getHasMapItem(HashMap *map, const char key);
 void freeHashMap(HashMap *map);
 
 #endif

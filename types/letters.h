@@ -5,6 +5,6 @@
 
 void initializeLettersMap(HashMap* map);
 extern const char LETTERS[LETTERS_SIZE];
-char getLetter(int number);
+char getLetter(long long number);
 
 #endif

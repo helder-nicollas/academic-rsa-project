@@ -2,16 +2,16 @@
 #define KEYS_H
 
 typedef struct {
-    int n;
-    int e;
+    long long n;
+    long long e;
 } PublicKey;
 
 typedef struct {
-    int n;
-    int d;
+    long long n;
+    long long d;
 } SecretKey;
 
-PublicKey generatePublicKey(int p, int q, int e);
-SecretKey generateSecretKey(int p, int q, int e);
+PublicKey generatePublicKey(long long p, long long q, long long e);
+SecretKey generateSecretKey(long long p, long long q, long long e);
 
 #endif

@@ -6,16 +6,16 @@
 #include "string.h"
 #include "modular-inverse.h"
 
-void encrypt(char *message, int *decryptedDigits, int e, int n) {
+void encrypt(char *message, long long *decryptedDigits, long long e, long long n) {
     HashMap *map = createHashMap(LETTERS_SIZE);
     initializeLettersMap(map);
     size_t size = strlen(message);
     
-    int counter = 0;
+    long long counter = 0;
     
     while (counter < size) {
-        int letterNumber = getHasMapItem(map, message[counter]);
-        int cryptNumber = modularExponentiation(letterNumber, e, n);
+        long long letterNumber = getHasMapItem(map, message[counter]);
+        long long cryptNumber = modularExponentiation(letterNumber, e, n);
 
         decryptedDigits[counter] = cryptNumber;
 
@@ -23,16 +23,16 @@ void encrypt(char *message, int *decryptedDigits, int e, int n) {
     }
 }
 
-void decrypt(int *cryptedMessage, char *decryptedMessage, int e, int n, int m, int size) {
+void decrypt(long long *cryptedMessage, char *decryptedMessage, long long e, long long n, long long m, long long size) {
     HashMap *map = createHashMap(LETTERS_SIZE);
     initializeLettersMap(map);
-    int d = modularInverse(e, m);
+    long long d = modularInverse(e, m);
 
-    int counter = 0;
+    long long counter = 0;
 
     while (counter < size) {
-        int number = cryptedMessage[counter];
-        int originalNumber = modularExponentiation(number, d, n);
+        long long number = cryptedMessage[counter];
+        long long originalNumber = modularExponentiation(number, d, n);
 
         decryptedMessage[counter] = getLetter(originalNumber);
 

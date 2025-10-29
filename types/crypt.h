@@ -1,7 +1,7 @@
 #ifndef CRYPT_H
 #define CRYPT_H
 
-int encrypt(char* message, int *cryptedDigits, int e, int n);
-int decrypt(int *cryptedMessage, char *decyptedMessage, int e, int n, int m, int size);
+long long encrypt(char* message, long long *cryptedDigits, long long e, long long n);
+long long decrypt(long long *cryptedMessage, char *decyptedMessage, long long e, long long n, long long m, long long size);
 
 #endif

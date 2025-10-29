@@ -1,6 +1,6 @@
 #ifndef EXTENDED_EUCLIDES_H
 #define EXTENDED_EUCLIDES_H
 
-int extendedEuclides(int a, int b, int *s, int *t);
+long long extendedEuclides(long long a, long long b, long long *s, long long *t);
 
 #endif

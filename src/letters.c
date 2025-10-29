@@ -9,11 +9,11 @@ const char LETTERS[LETTERS_SIZE] = {
 };
 
 void initializeLettersMap(HashMap *map) {
-    for (int current = 0; current < LETTERS_SIZE; current++)
+    for (long long current = 0; current < LETTERS_SIZE; current++)
         putHashMapItem(map, LETTERS[current], current + 2);
 }
 
-char getLetter(int number) {
+char getLetter(long long number) {
     return LETTERS[number - 2];
 }
 

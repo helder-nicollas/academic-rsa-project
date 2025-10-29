@@ -1,17 +1,17 @@
 #include "stdio.h"
 
-void createPublicKeyFile(int n, int e) {
+void createPublicKeyFile(long long n, long long e) {
     FILE *fpointer;
 
     fpointer = fopen("files/public_key.txt", "w");
 
-    fprintf(fpointer, "%d %d", n, e);
+    fprintf(fpointer, "%lld %lld", n, e);
 
     fclose(fpointer);
 }
 
-void createCryptedDigitsFile(int *cryptedDigits, int size) {
-    int i;
+void createCryptedDigitsFile(long long *cryptedDigits, long long size) {
+    long long i;
 
     FILE *fpointer;
 
@@ -19,17 +19,17 @@ void createCryptedDigitsFile(int *cryptedDigits, int size) {
 
     for (i = 0; i < size; i++) {
         if (i == size - 1) {
-            fprintf(fpointer, "%d", cryptedDigits[i]);
+            fprintf(fpointer, "%lld", cryptedDigits[i]);
         } else {
-            fprintf(fpointer, "%d ", cryptedDigits[i]);
+            fprintf(fpointer, "%lld ", cryptedDigits[i]);
         }
     }
 
     fclose(fpointer);
 }
 
-void createDecryptedMessageFile(char *decryptedMessage, int size) {
-    int i;
+void createDecryptedMessageFile(char *decryptedMessage, long long size) {
+    long long i;
 
     FILE *fpointer;
 
@@ -42,15 +42,15 @@ void createDecryptedMessageFile(char *decryptedMessage, int size) {
     fclose(fpointer);
 }
 
-void fillNumbersArray(int *numbersArray, char *file, int size) {
+void fillNumbersArray(long long *numbersArray, char *file, long long size) {
     FILE *fpointer;
 
-    int i;
+    long long i;
 
     fpointer = fopen(file, "r");
 
     for (i = 0; i < size; i++) {
-        if (fscanf(fpointer, "%d", &numbersArray[i]) != 1) {
+        if (fscanf(fpointer, "%lld", &numbersArray[i]) != 1) {
             break;
         }
     }
@@ -58,7 +58,7 @@ void fillNumbersArray(int *numbersArray, char *file, int size) {
     fclose(fpointer);
 }
 
-void fillDecryptedMessage(char *string, int size) {
+void fillDecryptedMessage(char *string, long long size) {
     FILE *fpointer;
     
     fpointer = fopen("files/decrypted_message.txt", "r");
@@ -68,14 +68,14 @@ void fillDecryptedMessage(char *string, int size) {
     fclose(fpointer);
 }
 
-int getAmountOfElements(char *file) {
+long long getAmountOfElements(char *file) {
     FILE *fpointer;
 
-    int counter = 0, temp;
+    long long counter = 0, temp;
 
     fpointer = fopen(file, "r");
 
-    while (fscanf(fpointer, "%d", &temp) == 1) {
+    while (fscanf(fpointer, "%lld", &temp) == 1) {
         counter++;
     }
 

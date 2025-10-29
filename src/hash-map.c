@@ -11,12 +11,12 @@ HashMap* createHashMap(size_t size) {
 
 
 unsigned long hash(const char key, size_t size) {
-    unsigned long charNumber = (int)key;
+    unsigned long charNumber = (long long)key;
     return (charNumber * 33) % size;
 }
 
 
-void putHashMapItem(HashMap *map, char key, int value) {
+void putHashMapItem(HashMap *map, char key, long long value) {
     unsigned long index = hash(key, map->size);
     Node *newNode = malloc(sizeof(Node));
     newNode->key = key;
@@ -37,7 +37,7 @@ void putHashMapItem(HashMap *map, char key, int value) {
 }
 
 
-int getHasMapItem(HashMap *map, const char key) {
+long long getHasMapItem(HashMap *map, const char key) {
     unsigned long index = hash(key, map->size);
     Node *current = map->buckets[index];
     while (current) {

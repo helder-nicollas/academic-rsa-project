@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-int main() {
+long long main() {
     
     //Algebric representation of Euclides Algorithmic Extendend
-    int a, b, d, D, mdc, q
+    long long a, b, d, D, mdc, q
 
     //MDC (a, b) = mdc = a * x + b * y
 
