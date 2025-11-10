@@ -3,6 +3,8 @@
 #include <string.h>
 #include "types.h"
 #include "files.h"
+#include "prime.h"
+#include "extended-euclides.h"
 
 int main() {
     char message[1000];
@@ -22,37 +24,55 @@ int main() {
         printf("Digite o primo 'p': ");
         scanf("%lld", &p);
 
-        printf("Digite o primo 'q': ");
-        scanf("%lld", &q);
+        if (isPrime(p) == 0) {
+            printf("O número digitado não é primo.\n");
+        } else {
+            printf("Digite o primo 'q': ");
 
-        printf("Digite o expoente 'e', relativamente primo a (p - 1)(q - 1): ");
-        scanf("%lld", &e);
+            scanf("%lld", &q);
 
-        n = p * q;
-
-        if (option == 1) {
-            createPublicKeyFile(n, e);
-        } else if (option == 3) {
-            long long publicKey[2];
-
-            fillNumbersArray(publicKey, "files/public_key.txt", 2);
-
-            if (publicKey[0] != n || publicKey[1] != e) {
-                printf("A chave pública informada está incorreta.\n");
+            if (isPrime(q) == 0) {
+                printf("O número digitado não é primo.\n");
             } else {
-                long long size = getAmountOfElements("files/crypted_digits.txt");
+                printf("Digite o expoente 'e', relativamente primo a (p - 1)(q - 1): ");
 
-                long long cryptedDigits[size];
-
-                fillNumbersArray(cryptedDigits, "files/crypted_digits.txt", size);
-
-                char decryptedMessage[size];
+                scanf("%lld", &e);
 
                 m = (p - 1) * (q - 1);
 
-                decrypt(cryptedDigits, decryptedMessage, e, n, m, size);
+                long long s, t;
 
-                createDecryptedMessageFile(decryptedMessage, size);
+                if (extendedEuclides(e, n, &s, &t) != 1) {
+                    printf("O número digitado não é coprimo de (p - 1) * (q - 1).\n");
+                } else {
+                    n = p * q;
+
+                    if (option == 1) {
+                        createPublicKeyFile(n, e);
+                    } else if (option == 3) {
+                        long long publicKey[2];
+
+                        fillNumbersArray(publicKey, "files/public_key.txt", 2);
+
+                        if (publicKey[0] != n || publicKey[1] != e) {
+                            printf("A chave pública informada está incorreta.\n");
+                        } else {
+                            long long size = getAmountOfElements("files/crypted_digits.txt");
+
+                            long long cryptedDigits[size];
+
+                            fillNumbersArray(cryptedDigits, "files/crypted_digits.txt", size);
+
+                            char decryptedMessage[size];
+
+                            m = (p - 1) * (q - 1);
+
+                            decrypt(cryptedDigits, decryptedMessage, e, n, m, size);
+
+                            createDecryptedMessageFile(decryptedMessage, size);
+                        }
+                    }
+                }
             }
         }
     } else if (option == 2) {
@@ -78,22 +98,6 @@ int main() {
             createCryptedDigitsFile(cryptedDigits, size);
         }
     }
-
-    /*
-    scanf("%d%d%d %[^\n]%*c", &p, &q, &e, message);
-
-    size_t size = strlen(message);
-
-    long long cryptedDigits[size];
-    char decryptedMessage[size];
-
-    long long n = p * q;
-    long long m = (p - 1) * (q - 1);
-
-    encrypt(message, cryptedDigits, e, n);
-
-    decrypt(cryptedDigits, decryptedMessage, e, n, m, size);
-    */
 
     return 0;
 }
